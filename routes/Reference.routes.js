@@ -5,7 +5,8 @@ const Reference = require("../models/Reference.model.js")
 // GET "/api/references/home"
 router.get("/home", async (req, res, next)=>{
     try {
-        const response = await Reference.find()
+        const response = await Reference.find({},
+        'cargo empresa github image linkPropio linkedin nombre recomendacion relevancia askMe')
         .limit(6)
         .sort({relevancia: 1})
         // console.log(response)

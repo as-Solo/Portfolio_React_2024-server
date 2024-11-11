@@ -9,7 +9,8 @@ const funcionalidadSchema = new Schema({
 
 const skillSchema = new Schema({
   nombre: { type: String, required: true },
-  descripcion: { type: String, required: true }
+  descripcion: { type: String, required: true },
+  hours: {type: Number, required: true}
 });
 
 const colaboradorSchema = new Schema({
@@ -75,3 +76,7 @@ projectSchema.index(
   { deploy: 1 },
   { unique: true, partialFilterExpression: { deploy: { $exists: true, $ne: null } } }
 );
+
+const Project = model("Project", projectSchema);
+
+module.exports = Project;

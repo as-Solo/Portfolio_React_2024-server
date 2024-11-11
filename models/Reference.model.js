@@ -11,6 +11,7 @@ const referenceSchema = new Schema(
       linkedin : {type: String, unique: true},
       github : {type: String, unique: true},
       email: {type: String, unique: true},
+      askMe: {type: Boolean, required: true, default: false},
       recomendacion: String,
     },
     {

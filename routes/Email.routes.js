@@ -20,15 +20,15 @@ router.post("/send-email", async (req, res, next) => {
     port: 587,
     secure: false,
     auth: {
-      user: process.env.EMAIL, // Reemplaza con tu correo
-      pass: process.env.PASSWORD, // Reemplaza con tu contraseña o token de app
+      user: process.env.IONOS_EMAIL, // Reemplaza con tu correo
+      pass: process.env.IONOS_PASSWORD, // Reemplaza con tu contraseña o token de app
     },
   });
 
   // Configurar el contenido del correo
   const mailOptions = {
     from: email,
-    to: process.env.EMAIL, // Tu correo, donde recibirás los mensajes
+    to: process.env.IONOS_EMAIL, // Tu correo, donde recibirás los mensajes
     subject: `Nuevo mensaje de ${name}`,
     text: `Tienes un nuevo mensaje:\n\nNombre: ${name}\nCorreo: ${email}\nMensaje: ${message}`,
   };

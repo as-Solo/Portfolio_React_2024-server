@@ -27,7 +27,7 @@ router.post("/send-email", async (req, res, next) => {
 
   // Configurar el contenido del correo
   const mailOptions = {
-    from: email,
+    from: process.env.IONOS_EMAIL,
     to: process.env.IONOS_EMAIL, // Tu correo, donde recibirás los mensajes
     subject: `Nuevo mensaje de ${name}`,
     text: `Tienes un nuevo mensaje:\n\nNombre: ${name}\nCorreo: ${email}\nMensaje: ${message}`,

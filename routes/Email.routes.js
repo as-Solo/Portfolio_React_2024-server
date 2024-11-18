@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const nodemailer = require("nodemailer");
 
 router.get("/mail", async (req, res, next) =>{
   res.json({message:"parlamento"})

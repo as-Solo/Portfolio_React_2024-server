@@ -1,7 +1,11 @@
 const router = require("express").Router();
 
-// POST "/api/mail/send-email"
-router.post("/send-email", async (req, res) => {
+router.get("/mail", async (req, res, next) =>{
+  res.json({message:"parlamento"})
+})
+
+// POST "/api/mails/send-email"
+router.post("/send-email", async (req, res, next) => {
   const { name, email, message } = req.body;
 
   // Validar que los campos estén completos
@@ -35,6 +39,7 @@ router.post("/send-email", async (req, res) => {
   } catch (error) {
     console.error("Error al enviar el correo:", error);
     res.status(500).json({ error: "No se pudo enviar el correo." });
+    next(error)
   }
 });
 
